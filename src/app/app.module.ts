@@ -7,11 +7,21 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 // Services
 import { MoviesService } from './services/movies.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
+import { PageComponent } from './components/page/page.component';
+import { CarouselComponent } from './components/home/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    SearchComponent,
+    PageComponent,
+    CarouselComponent
     
   ],
   imports: [
