@@ -10,8 +10,8 @@ export class AppComponent {
 
   constructor( private movieSrv: MoviesService){
 
-    this.movieSrv.getPopular()
-        .subscribe( data => console.log(data.results))
+    /*this.movieSrv.getPopular()
+        .subscribe( data => console.log(data.results))*/
   }
 
 }

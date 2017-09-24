@@ -1,7 +1,44 @@
 <app-carousel></app-carousel>
 
 <div class="container main-container">
+  <h3>Peliculas en cartelera</h3><br>
   <div class="row">
-      <h3>Peliculas en cartelera</h3>
+    <div class="col-md-2 animated fadeIn" *ngFor="let movie of movies | slice:0:12">
+      <div class="poster">
+        <img class="img-box" src="{{movie?.poster_path | poster}}" alt="" width="250px">
+        <p class="caption">{{movie.title}}</p>
+      </div>
+    </div>
+    <div class="show-more">
+        <button class="btn btn-outline-primary">Ver todas</button>
+      </div>
+  </div>
+
+  <hr>
+  <h3>Peliculas populares</h3><br>
+  <div class="row">
+    <div class="col-md-2 animated fadeIn" *ngFor="let movie of popular | slice:0:12">
+      <div class="poster">
+        <img class="img-box" src="{{movie?.poster_path | poster}}" alt="" width="250px">
+        <p class="caption">{{movie.title}}</p>
+      </div>
+    </div>
+    <div class="show-more">
+      <button class="btn btn-outline-primary">Ver todas</button>
+    </div>
+  </div>
+
+  <hr>
+  <h3>Top peliculas para niños</h3><br>
+  <div class="row">
+    <div class="col-md-2 animated fadeIn" *ngFor="let movie of kids | slice:0:12">
+      <div class="poster">
+        <img class="img-box" src="{{movie?.poster_path | poster}}" alt="" width="250px">
+        <p class="caption">{{movie.title}}</p>
+      </div>
+    </div>
+    <div class="show-more">
+        <button class="btn btn-outline-primary">Ver todas</button>
+      </div>
   </div>
 </div>

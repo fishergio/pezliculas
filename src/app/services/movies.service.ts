@@ -1,3 +1,4 @@
+import { Data } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Jsonp } from '@angular/http';
 import 'rxjs/Rx'; // Map
@@ -20,10 +21,25 @@ export class MoviesService {
   }
 
   getInTheatres() {
-    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=2017-09-15&primary_release_date.lte=2017-10-22&api_key${this.apiKey}${this.lenguageCallback}`;
+
+    var d = new Date();
+    var b = new Date();
+
+    let start:string = d.getFullYear() +"-"+ (d.getMonth()+1) +"-"+ d.getDate();
+    let end:string = b.getFullYear() +"-"+ ((b.getMonth()+1)-1) +"-"+ b.getDate();
+
+    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${end}&primary_release_date.lte=${start}&api_key=${this.apiKey}${this.lenguageCallback}`;
     
     return this.jsonp.get(url)
         .map( res => res.json());
+  }
+
+  getKidsMovies() {
+
+    let url = `${this.urlMoviedb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}${this.lenguageCallback}`;
+    
+    return this.jsonp.get(url)
+        .map( res => res.json())
   }
 
 }
