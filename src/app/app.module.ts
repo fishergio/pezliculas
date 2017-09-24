@@ -9,12 +9,19 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
 // Services
 import { MoviesService } from './services/movies.service';
+
+// Components 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { PageComponent } from './components/page/page.component';
 import { CarouselComponent } from './components/home/carousel/carousel.component';
+
+// Pipes
 import { PosterPipe } from './pipes/poster.pipe';
+
+// Routes
+import { APP_ROUTING } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,8 @@ import { PosterPipe } from './pipes/poster.pipe';
     HttpModule,
     JsonpModule,
     NgxCarouselModule,
-    MasonryModule
+    MasonryModule,
+    APP_ROUTING
   ],
   providers: [
     MoviesService
