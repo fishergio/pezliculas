@@ -1,0 +1,36 @@
+.poster{
+  width: 100%;
+  height: 450px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  transition: all 1s ease-in-out
+}
+
+.bg-movie {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  opacity: .5;
+}
+
+.bg-poster {
+  background-color: rgba(0, 0, 0, .7);
+  width: 100%;
+  height: 100%;
+}
+
+.movie-box {
+  padding: 10% 0;
+}
+
+.movie-title, .features {
+  color: #fff;
+}
+
+.resumen h4, p{
+  color: #fff;
+}

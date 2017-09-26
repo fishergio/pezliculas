@@ -41,8 +41,8 @@ export class HomeComponent {
         .subscribe( data => this.kids = data.results)
   }
 
-  showMovieDetail(id:string) {
-    console.log(id);
+  showMovie(id:any, page:any) {
+    this.route.navigate(['/movie', id, page]);
   }
 
 }

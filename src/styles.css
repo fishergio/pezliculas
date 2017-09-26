@@ -60,6 +60,9 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  transition: all 1s ease-in-out
 }
 
 .div-pic-2{
@@ -69,6 +72,14 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  transition: all 1s ease-in-out
+}
+
+.div-pic-1:hover, .div-pic-2:hover {
+  opacity: .9;
+  transform: scale(1.01);
 }
 
 .pic-titulo{

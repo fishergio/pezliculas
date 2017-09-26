@@ -1,3 +1,32 @@
-<p>
-  page works!
-</p>
+<section *ngIf="movie" class="bg-movie animated fadeIn fast" [ngStyle]="{'background-image': 'url( '+ (movie.backdrop_path | poster) +')' }">
+
+  <div class="bg-poster">
+
+    <div class="container">
+      <div class="row movie-box">
+        <div class="col-md-4">
+          <div class="poster" [ngStyle]="{'background-image': 'url( '+ (movie.poster_path | poster) +')' }"></div>
+        </div>
+        <div class="col-md-8">
+          <h3 class="movie-title">{{ movie.title }} <small>({{ movie.release_date | date:'yyyy' }})</small></h3>
+          <hr>
+          <div class="features">
+              Generos: <span *ngFor="let gen of movie.genres" class="badge badge-info"
+               [ngStyle]="{'margin-right': '5px'}">{{ gen.name }}</span>
+               <br>
+               Calificación: <span  class="badge badge-primary">{{ movie.vote_average }}</span>
+          </div>
+          <hr>
+          <div class="resumen">
+            <h4>Resumen</h4>
+            <p class="text-justify animated fadeIn fast">{{ movie.overview }}</p>
+            <p>
+              <button class="btn btn-outline-danger" [routerLink]="['/search']">Regresar {{returnTo}}</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

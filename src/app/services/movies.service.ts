@@ -55,4 +55,12 @@ export class MoviesService {
         });
   }
 
+  getMovie(id:any) {
+
+    let url = `${this.urlMoviedb}/movie/${id}?&api_key=${this.apiKey}${this.lenguageCallback}`;
+
+    return this.jsonp.get(url)
+        .map( res => res.json());
+  }
+
 }
