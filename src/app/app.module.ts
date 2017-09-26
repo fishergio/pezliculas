@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,6 +23,7 @@ import { PosterPipe } from './pipes/poster.pipe';
 
 // Routes
 import { APP_ROUTING } from './app.routes';
+import { GaleryComponent } from './components/home/galery.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { APP_ROUTING } from './app.routes';
     SearchComponent,
     PageComponent,
     CarouselComponent,
-    PosterPipe
+    PosterPipe,
+    GaleryComponent
     
   ],
   imports: [
@@ -41,6 +44,7 @@ import { APP_ROUTING } from './app.routes';
     JsonpModule,
     NgxCarouselModule,
     MasonryModule,
+    FormsModule,
     APP_ROUTING
   ],
   providers: [

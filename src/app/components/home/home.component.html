@@ -1,10 +1,42 @@
 <app-carousel></app-carousel>
 
 <div class="container main-container">
-  <h3>Peliculas en cartelera</h3><br>
-  <div class="row">
+  <h3>Peliculas en cartelera</h3>
+  <hr>
+  <div class="row" *ngIf="movies">
+    <div class="col-sm-6">
+
+      <div class="row">
+        <div class="col-md-12 div-pic-1" [ngStyle]=" {'background-image': 'url( '+(movies[0].backdrop_path | poster)+' )' }">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 div-pic-2" [ngStyle]=" {'background-image': 'url( '+(movies[1].backdrop_path | poster)+' )' }">
+        </div>
+        <div class="col-sm-6 div-pic-2" [ngStyle]=" {'background-image': 'url( '+(movies[2].backdrop_path | poster)+' )' }">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-sm-6 div-pic-2" [ngStyle]=" {'background-image': 'url( '+(movies[3].backdrop_path | poster)+' )' }">
+        </div>
+        <div class="col-sm-6 div-pic-2" [ngStyle]=" {'background-image': 'url( '+(movies[4].backdrop_path | poster)+' )' }">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 div-pic-1" [ngStyle]=" {'background-image': 'url( '+(movies[5].backdrop_path | poster)+' )' }">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="row">
     <div class="col-md-2 animated fadeIn" *ngFor="let movie of movies | slice:0:12">
-      <div class="poster">
+      <div class="poster" (click)="showMovieDetail(movie.id)">
         <img class="img-box" src="{{movie?.poster_path | poster}}" alt="" width="250px">
         <p class="caption">{{movie.title}}</p>
       </div>
@@ -12,13 +44,13 @@
     <div class="show-more">
         <button class="btn btn-outline-primary">Ver todas</button>
       </div>
-  </div>
+  </div>-->
 
   <hr>
   <h3>Peliculas populares</h3><br>
   <div class="row">
     <div class="col-md-2 animated fadeIn" *ngFor="let movie of popular | slice:0:12">
-      <div class="poster">
+      <div class="poster" (click)="showMovieDetail(movie.id)">
         <img class="img-box" src="{{movie?.poster_path | poster}}" alt="" width="250px">
         <p class="caption">{{movie.title}}</p>
       </div>
@@ -32,13 +64,13 @@
   <h3>Top peliculas para niños</h3><br>
   <div class="row">
     <div class="col-md-2 animated fadeIn" *ngFor="let movie of kids | slice:0:12">
-      <div class="poster">
+      <div class="poster" (click)="showMovieDetail(movie.id)">
         <img class="img-box" src="{{movie?.poster_path | poster}}" alt="" width="250px">
         <p class="caption">{{movie.title}}</p>
       </div>
     </div>
     <div class="show-more">
-        <button class="btn btn-outline-primary">Ver todas</button>
-      </div>
+      <button class="btn btn-outline-primary">Ver todas</button>
+    </div>
   </div>
 </div>

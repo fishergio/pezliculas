@@ -47,4 +47,7 @@ export class CarouselComponent implements OnInit {
       dynamicLength: true
     }
   }
+  public myfunc(event: Event) {
+   
+ }
 }

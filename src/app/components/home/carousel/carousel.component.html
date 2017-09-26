@@ -30,9 +30,10 @@
   <ngx-carousel 
   [inputs]="carouselOne"
   [inputsLength]="slider.length"
-  (carouselLoad)="carouselTileLoad($event)">
+  (carouselLoad)="myfunc($event)">
     <ngx-item class="bannerStyle" *ngFor="let img of slider">
-        <img class="bg-slider" alt="First slide" src="{{img.img}}">
+        <div class="bg-slider" alt="First slide"
+         [ngStyle]="{ 'background-image': 'url( '+ (img['img']) +' )' }"></div>
         <div>
         <h1 class="caption animated fadeIn">{{ img.title }}</h1>
         </div>

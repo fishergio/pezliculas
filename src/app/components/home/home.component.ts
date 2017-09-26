@@ -1,6 +1,7 @@
 import { forEach } from '@angular/router/src/utils/collection';
 import { Component } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,12 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class HomeComponent {
 
- movies:any[] = []; 
+ movies:any; 
  popular:any[] = [];
  kids:any[] = [];
  
 
-  constructor(private moviesSrv: MoviesService) { 
+  constructor(private moviesSrv: MoviesService, private route: Router) { 
     this.getNews();
     this.getPopular();
     this.getForKids();
@@ -24,7 +25,6 @@ export class HomeComponent {
     this.moviesSrv.getInTheatres()
     .subscribe( data => {
       this.movies = data.results;
-      console.log(this.movies)
     });
   }
 
@@ -32,12 +32,17 @@ export class HomeComponent {
     this.moviesSrv.getPopular()
     .subscribe( data => {
       this.popular = data.results;
+      console.log(this.popular);
     });
   }
 
   getForKids() {
     this.moviesSrv.getKidsMovies()
         .subscribe( data => this.kids = data.results)
+  }
+
+  showMovieDetail(id:string) {
+    console.log(id);
   }
 
 }

@@ -10,6 +10,8 @@ export class MoviesService {
   private urlMoviedb:string  = 'https://api.themoviedb.org/3';
   private lenguageCallback = '&language=es&callback=JSONP_CALLBACK';
 
+  movies:any[] = [];
+
   constructor(private jsonp: Jsonp ) { }
 
 
@@ -22,13 +24,14 @@ export class MoviesService {
 
   getInTheatres() {
 
-    var d = new Date();
-    var b = new Date();
+    let start = new Date();
+    let end = new Date();
+    end.setDate(end.getDate() + 7)
 
-    let start:string = d.getFullYear() +"-"+ (d.getMonth()+1) +"-"+ d.getDate();
-    let end:string = b.getFullYear() +"-"+ ((b.getMonth()+1)-1) +"-"+ b.getDate();
-
-    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${end}&primary_release_date.lte=${start}&api_key=${this.apiKey}${this.lenguageCallback}`;
+    let startStr:string = `${start.getFullYear()}-${(start.getMonth()+1)}-${start.getDate()}`;
+    let endStr:string = `${end.getFullYear()}-${(end.getMonth()+1)}-${end.getDate()}`;
+    
+    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${startStr}&primary_release_date.lte=${endStr}&api_key=${this.apiKey}${this.lenguageCallback}`;
     
     return this.jsonp.get(url)
         .map( res => res.json());
@@ -40,6 +43,16 @@ export class MoviesService {
     
     return this.jsonp.get(url)
         .map( res => res.json())
+  }
+
+  searchMovie(search: string) {
+    let url = `${this.urlMoviedb}/search/movie?query=${search}&sort_by=popularity.desc&api_key=${this.apiKey}${this.lenguageCallback}`;
+
+    return this.jsonp.get(url)
+        .map( res => { 
+          this.movies = res.json().results;
+          return res.json().results;
+        });
   }
 
 }
