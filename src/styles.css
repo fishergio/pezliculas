@@ -78,7 +78,6 @@
 }
 
 .div-pic-1:hover, .div-pic-2:hover {
-  opacity: .9;
   transform: scale(1.01);
 }
 

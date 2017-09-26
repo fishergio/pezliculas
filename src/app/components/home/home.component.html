@@ -10,6 +10,7 @@
         <div class="col-md-12 div-pic-1"
           (click)="showMovie(movies[0].id, 'home')"
          [ngStyle]=" {'background-image': 'url( '+(movies[0].backdrop_path | poster)+' )' }">
+        <p class="pic-titulo">{{ movies[0].original_title }}</p>        
         </div>
       </div>
 
@@ -17,10 +18,12 @@
         <div class="col-sm-6 div-pic-2" 
         (click)="showMovie(movies[1].id, 'home')"        
         [ngStyle]=" {'background-image': 'url( '+(movies[1].backdrop_path | poster)+' )' }">
+        <p class="pic-titulo">{{ movies[1].original_title }}</p>                
         </div>
         <div class="col-sm-6 div-pic-2" 
         (click)="showMovie(movies[2].id, 'home')"        
         [ngStyle]=" {'background-image': 'url( '+(movies[2].backdrop_path | poster)+' )' }">
+        <p class="pic-titulo">{{ movies[2].original_title }}</p>                
         </div>
       </div>
     </div>
@@ -30,10 +33,14 @@
         <div class="col-sm-6 div-pic-2"
         (click)="showMovie(movies[3].id, 'home')"        
          [ngStyle]=" {'background-image': 'url( '+(movies[3].backdrop_path | poster)+' )' }">
+        <p class="pic-titulo">{{ movies[3].original_title }}</p>        
+        
         </div>
         <div class="col-sm-6 div-pic-2" 
         (click)="showMovie(movies[4].id, 'home')"        
         [ngStyle]=" {'background-image': 'url( '+(movies[4].backdrop_path | poster)+' )' }">
+        <p class="pic-titulo">{{ movies[4].original_title }}</p>        
+        
         </div>
       </div>
 
@@ -41,6 +48,8 @@
         <div class="col-md-12 div-pic-1" 
         (click)="showMovie(movies[5].id, 'home')"        
         [ngStyle]=" {'background-image': 'url( '+(movies[5].backdrop_path | poster)+' )' }">
+        <p class="pic-titulo">{{ movies[5].original_title }}</p>        
+        
         </div>
       </div>
     </div>
