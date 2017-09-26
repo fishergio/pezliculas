@@ -21,7 +21,7 @@
             <h4>Resumen</h4>
             <p class="text-justify animated fadeIn fast">{{ movie.overview }}</p>
             <p>
-              <button class="btn btn-outline-danger" [routerLink]="['/search']">Regresar {{returnTo}}</button>
+              <button class="btn btn-outline-danger" [routerLink]="['/'+returnTo, search]">Regresar {{returnTo}}</button>
             </p>
           </div>
         </div>

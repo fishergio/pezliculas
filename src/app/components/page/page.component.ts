@@ -10,13 +10,19 @@ import { ActivatedRoute } from '@angular/router';
 export class PageComponent implements OnInit {
   movie:any;
   returnTo:string="";
+  search:string = "";
 
   constructor(private moviesSrv: MoviesService,
     private route: ActivatedRoute) {
 
       this.route.params.subscribe( params => {
         console.log(params);
+
         this.returnTo = params['page'];
+
+        if(params['search']){
+          this.search = params['search'];
+        }
         
         this.moviesSrv.getMovie(params['id'])
               .subscribe( movie => {

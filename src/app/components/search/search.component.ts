@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
     this.route.params.subscribe(params => {
       let param = params['text'];
 
-      if (param.length > 1) {
+      if (param) {
         this.search = param;
         this.searchMovie();
       }
